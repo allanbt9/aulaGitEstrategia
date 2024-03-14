@@ -1,0 +1,184 @@
+oq será visto nesta sequência de aulas sobre GIT:
+histórico: CVS e SVN
+Comandos básicos e Workflow
+Comandos avançados e repositório distribuído (git reset, )
+Lidando com branches
+Melhores práticas com GitFLow
+Social GitHub x Gitlab x BitBucket
+Questões
+
+
+
+
+
+O git é um repositório distribuido, oq isso significa?
+
+Ele pode estar na internet, ou localmente na nossa máquina, pq ele clona os repositórios,
+justamente pra várias pessoas poderem trabalhar nele ao mesmo tempo.
+Não a toa existe o comando: git clone git@github.com:allanbt9/RepoTeste.git
+onde ele clona o repositório na máquina.
+
+
+
+
+
+-------local workflow--------
+
+----git init
+    toda vez que eu crio e inicializo (com o git init) um projeto local, tal projeto vai para o Work-Dir
+
+
+    tanto que no comando git init aparece o texto na tela:
+    Repositório vazio Git inicializado em  /home/allanbt9/Documentos/concursoTJ/git_version
+
+    ele nao cria nenhum arquivo visivel. mas se vc der o comando: ls-a ele mostra um arquivo .git
+    Nesse arquivo '.git' tem toda a estrutura do git pronta.
+    Dê os comandos: 'cd .git' e depois 'ls -la' pra vê tal estrutura
+
+
+---git status
+    agora temos o comando git status
+    ele mostra tudo sobre o projeto, o estado dele, arquvios que nao foram enviados pra internet
+
+
+---git add .
+    para adicionar os arquivos novos/alterados
+
+
+    para o exemplo criou-se o arquivo 'aula' com o comando 'touch aula', porém o git
+    ainda não sabe nem que esse arquivo existe, mesmo ele existindo na nossa máquina local,
+    Ele ainda não é um arquivo rastreado pelo git(faz sentido, pois não é pq vc criou um arquivo, que vc quer versioná-lo).
+    Dê o comando 'git status' e vc verá algo como: arquivos não monitorados(untracked files)
+    e a lista com esse arquivo 'aula' nela.
+
+    próximo passo: fazer o git versionar esse código, mas vc não versiona o código logo de cara, vc primeiro vai pra uma 
+    fase pré-commit, chamada de: Staging area
+
+    Pq isso? pq nela vc tem mais liberdade de escolher oq versionar, se vc quiser vc pode selecionar arquivos específicos,
+    colocá-los nessa área de Staging e comitá-los.
+
+
+    ai pra colocar esse arquivos pra essa staging area, usa-se o comando 'git add'
+
+    faça 'git add aula'
+    ai faça 'git status' e vc verá as frases 'Mudanças a serem submetidas' e 'new file: aula'. Logo o git reconheceu tal arquivo
+
+
+---git log
+mostrar todos os logs do meu git
+todo arquivo comitado estará no log. Perceba que o resultado será vazio. Aparece na tela que não há nenhum log ainda, pois
+ainda nao commitamos o arquivo aula, pois estamos na fase de pré-commit da staging area.
+
+
+----git commit
+
+o comando 'git commit -m 'mensagem desse commit'
+
+essa mensagem é pra marcar cada commit, cada versão la no site do github. E assim ir controlando 
+as versões do seu arquivo/código chamado aula.
+
+o famoso: controlador de versões
+
+é importante ter esse arquivo 'aula' versionado, controlado, commitado. Usa-se o controlador de versões pra isso.
+
+
+
+agora dê o comando: git commit -m "meu primeiro commit"
+
+agora o arquivo aula está commitado/versionado
+     
+
+Vantagem: o histórico de toda a alteração feita neste código, e quem fez as alterações.
+
+
+--git log
+mostra todos os commits feitos
+qume foi o autor do commit
+o email do autor
+e a data da alteração
+
+git log -oneline - o codigo resumido do commit
+
+OBS: gostei desse git log, me dá uma clareada sobre oq ta acontecendo no git e no projeto em questão
+
+
+
+-----git commit parte 2 (nao entendi essa parte)
+git commit -ma "meu x commit"
+git commit -a "meu x commit"
+
+
+
+
+OBS: perceba que mesmo localmente conseguimos versionar e tudo mais os nossos códigos, pois, por padrão, toda
+vez que vc inicializa um projeto git, já existe um repositório git pra vc usar e versionar os seus arquivos e afins
+
+
+
+----git commit --amend
+alterar a última mensagem do commit
+fiz isso e ele alterou a mensagem do commit relacionado ao arquivo aula2 que criei (meu primeiro commit), que foi
+justamente o último commit que eu fiz neste projeto, acho que serve pra corrigir erros recentes, 
+do tipo:fiz apertei em commitar e o texto tava errado, perai vou ajeitar". Assim não precisa dar outro
+commit só por causa de um erro de digitação
+
+
+
+
+Mais comandos básicos:reste, revert, deleted file, blame, show, 
+
+
+
+-----git blame
+ele dá o histórico de alterações do arquivo
+obs: não é o histórico de commits, isso é com o git log,
+o blame dá as alterações do arquivo em si (neste caso, como é um arquivo .txt, ele mostra oq foi alterado 
+no texto que tá nesse arquivo .txt)
+
+
+
+----git revert
+pra reverter uma mudança que vc se arrendeu de ter feito
+
+eu só consegui alterar o último commit feito do arquivo aula(como se fosse uma pilha, onde só consigo pegar o topo dela),
+inclusive quando fiz: git blame aula 
+pra mostrar o histórico de alterações dos textos do arquivo aula, a última alteração dele (um texto 'alteração 3') 
+nem aparecia, ele realmente reverteu todas as alteraçoes.
+
+
+-----git remote (só faz uma vez)
+
+agora fazer a conexao do repositório local com o remoto (se já foi feito anteriormente, não precisa)
+
+o comando é: git remote add origin nomeDoLinkDoRepositorio.git
+exemplo: git remote add origin git@github.com:allanbt9/aulaGitEstrategia.git
+
+obs:origin é um apelido para a nuvem(remoto) onde ficará o repositório
+
+
+git remote -v: listar quais são os meus links remotos
+com esse comando irá aparecer 2 links: push e fetch
+
+
+-----git push
+por fim iremos upar nosso repositório local para a nuvem com o git push
+
+
+comando: git push origin master
+
+obs: esse master será explicado depois
+
+
+github - uma rede social pra programadores, que abriga códigos, versionando eles usando git.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,154 @@
+vamos usar o nodejs para esta parte do backend
+
+a liguagem será javascript
+
+
+Postman tem como objetivo testar aplicações aplicações restfull e web api´s que tem repostas http/desenvolvimento web
+
+vc faz uma requisição e analisa a resposta
+
+
+sistema de versionamento
+
+v1
+
+v2
+
+v3
+
+piores versionamentos para ser feito
+nao tem histórico de quem criou cada 'v' e quando foi feito
+
+
+segunda opção é fazer um versionamento central, estando em um servidor, por exemplo
+
+
+
+
+agora o sistema de versionamento mais usado hoje é o sistema de versionamento distribuido
+
+O git é um exemplo dele,
+
+vcc tem um repositório remoto com todos os códigos criados, a partir dele vc consegue criar clones
+e trabalhar separadamente com cada um deles, e vc pode guardar snapshots deles.
+Ai fica fácil de ser baixada e clonada.
+
+
+----------------------------------------------USANDO O GIT NO TERMINAL-----------------------------------------
+
+tutorial da documentação do próprio git:
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
+
+comando para listar todas as configurações do git:
+git config --list
+
+configuração global para determinar que nessa máquina que todos os usuáruos e todos os envios seeão pelo nosso email:
+git config --global usar.name "allanbt9"
+git config --global usar.email "allanps32008@hotmail.com"
+
+
+Para criar uma chave ssh para usar com a sua conta do github:
+ssh-keygen -t rsa -b 4096 -C "allanps32008@hotmail.com"
+
+
+para verificar se ela foi criada:
+eval "$(ssh-agent -s)"
+
+para adicioná-la:
+ssh-add ~/.ssh/id_rsa
+
+
+agora vamos abrir este arquivo e copiá-lo para a nossa chave lá no git
+cat  ~/.ssh/id_rsa.pub
+
+vai aparecer na tela a chave SSH, um amontoado grande de letras e números, copie e cole la no site do github, na parte
+de criar chaves.
+
+
+echo "# RepoTeste" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/allanbt9/RepoTeste.git
+
+git push -u origin main
+
+
+git remote add origin git@github.com:allanbt9/RepoTeste.git
+
+
+
+
+git remote add origin https://github.com/allanbt9/RepoTeste.git
+git pull origin master --allow-unrelated-histories
+git commit -a -m "merge"
+git push -u origin master
+
+-----------------------------------------------------------------------------------------------------------------
+tutorial que deu certo: 
+https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
+------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Aparentemente apenas o 
+
+git clone git@github.com:allanbt9/RepoTeste.git
+
+já deu certo, pois os outros comandos são para criar o arquivo README.md, e ele já estava criado. Mas no fim esse comando é apenas para clonar o repositório do site di github para a máquina local. Ainda falta fazer a ligação com o push para upar as atualzações.
+
+
+------------------------------------------------------------------------------
+
+
+
+se der errado tentar o comando: git remote add origin REMOTE-URL
+ele serve para adicionar a URL do repositório remoto onde seu repositório local será enviado, execute o seguinte comando. Substitua REMOTE-URL pela URL completa do repositório no GitHub.
+
+Para saber qual o status da pasta: git status. Ai vc sabe se tem algo para ser enviado ou se está a mesma coisa.
+
+eu alterei o arquivo README.md localmente e dei esse comando, git status, de novo
+ai apareceu algo no terminal, na cor vermelha, como: 
+modified: README.md
+
+
+
+Para upar as alterações feitas no repositório remoto (do site do github), use o comando: git add . (o ponto faz parte do comando)
+
+de git status de novo e vc verá o modfied: README.md na cor verde
+
+git commit -m "Primeiro commit" (ele tbm mudou algo lá no github, tentei sozinho e nao deu certo sem isso, parece que ele só aceita alterar um arquivo já existente se vc mudar essa descrição dele, na segunda alteração eu coloquei "Segundo commit")
+
+git status
+
+git push
+
+
+git push serve para conectar ao repositório remoto e enviar o arquivo criado
+
+git push --set-upstream origin main (caso de algo erro no git push, com algo como upstream branch, use esse comando)
+
+
+
+a ordem ficou:
+(alterei o arquivo README.md)
+git status
+git add . (o ponto serve para adicionar tudo, se quiser adicionar apenas um arquivo especifico, tira o ponto e poe o nome dele)
+git status
+git commit -m "Segundo commit"
+git push (para enviar ao repositório remoto)
+
+
+
+
+
+
+----------------Para baixar coisas criadas lá no github--------------------
+
+Usa o comando: git pull
+
+
+
+
+
