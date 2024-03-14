@@ -139,6 +139,7 @@ no texto que tá nesse arquivo .txt)
 
 ----git revert
 pra reverter uma mudança que vc se arrendeu de ter feito
+só funcionou desta forma: git revert HEAD
 
 eu só consegui alterar o último commit feito do arquivo aula(como se fosse uma pilha, onde só consigo pegar o topo dela),
 inclusive quando fiz: git blame aula 
@@ -177,7 +178,7 @@ pelo oq eu entendi, com ele eu consigo mandar as coisas pra nuvem apenas com o g
 -------------------------------------------------------------------------------------------------------------------
 -Não sabia, mas dentro de um mesmo repositório pode ter vários galhos, não sei quando, mas parece que criei um galho chamado:master
 e por padrão todo repositório do git online já tem o galho: main
--Do lado superior direito, logo abaixo do nome do repositório, tem um quadrado clicável, nela a lista de branches
+-Do lado superior esquerdo, logo abaixo do nome do repositório, tem um quadrado clicável, nela a lista de branches
 neste caso, branches: main, master
 -------------------------------------------------------------------------------------------------------------------
 
