@@ -19,8 +19,14 @@ Não a toa existe o comando: git clone git@github.com:allanbt9/RepoTeste.git
 onde ele clona o repositório na máquina.
 
 
-
-
+Ordem:
+git init (pra inicializar o projeto localmente)
+(crie algum arquivo)
+git add arquivo
+git commit -m "meu primeiro commit"
+git remote add origin nomeDoLinkDoRepositorio.git
+git remote -v
+git push origin master
 
 -------local workflow--------
 
