@@ -167,6 +167,10 @@ por fim iremos upar nosso repositório local para a nuvem com o git push
 comando: git push origin master
 
 obs: esse master será explicado depois
+obs: talvez o comando seja: 
+
+comando: git push -u origin master
+pelo oq eu entendi, com ele eu consigo mandar as coisas pra nuvem apenas com o git push
 
 
 github - uma rede social pra programadores, que abriga códigos, versionando eles usando git.
